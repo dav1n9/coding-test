@@ -13,12 +13,23 @@ int func1(int N){
 }
 
 int func2(int arr[], int N){
-    for(int i = 0; i < N-1; i++) {
-        for(int j = i+1; i < N; i++) {
-            if(arr[i] + arr[j] == 100) {
-                return 1;
-            }
-        }
+    // for(int i = 0; i < N-1; i++) {
+        // for(int j = i+1; i < N; i++) {
+            // if(arr[i] + arr[j] == 100) {
+                // return 1;
+            // }
+        // }
+    // }
+    // return 0;
+
+    // 배열 이용한 풀이 :
+    int count[101] = {};
+    for(int i = 0; i < N; i++) {
+      if(count[100 - arr[i]] > 0) {
+        return 1;
+      } else {
+        count[arr[i]]++;
+      }
     }
     return 0;
 }
